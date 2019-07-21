@@ -245,7 +245,7 @@ class Model(object):
         end = np.asarray([[small] * self.num_tags + [small, 0]])
         for score, length in zip(logits, lengths):
             score = score[:length]
-            pad = small * np.ones([length, 1])
+            pad = small * np.ones([length, 2])
             if self.use_start_end_crf:
                 logits = np.concatenate([score, pad], axis=1)
                 logits = np.concatenate([start, logits, end], axis=0)

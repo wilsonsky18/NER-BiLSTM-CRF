@@ -241,7 +241,7 @@ class Model(object):
         # inference final labels usa viterbi Algorithm
         paths = []
         small = -1000.0
-        start = np.asarray([[small] * self.num_tags + [0]])
+        start = np.asarray([[small] * self.num_tags + [0, small]])
         end = np.asarray([[small] * self.num_tags + [small, 0]])
         for score, length in zip(logits, lengths):
             score = score[:length]
